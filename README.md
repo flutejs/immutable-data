@@ -1,6 +1,6 @@
 ## immutable-data
 
-A method of picking up the property to complete "persistent immutable data"
+A method of picking up the property to complete "persistent immutable data"
  
 ```javascript
 var immutableData = require("immutable-data")
