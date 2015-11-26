@@ -5,7 +5,7 @@
 [![NPM version](https://img.shields.io/npm/v/immutable-data.svg?style=flat)](https://npmjs.org/package/immutable-data)
 [![NPM downloads](http://img.shields.io/npm/dm/immutable-data.svg?style=flat)](https://npmjs.org/package/immutable-data)
 
-A method of picking up the property to complete "persistent immutable data"
+A method of picking the property to complete "persistent immutable data"
  
 ```javascript
 var immutableData = require("immutable-data")
@@ -56,7 +56,7 @@ console.log(newObj.c.f===oldObj.c.f)  //true
 
 - pick
   
-  pick up the property you want to modify,then you can modify it by ordinary javascript method,you should pick up the last object or array you want to modify
+  pick the property you want to modify,then you can modify it by ordinary javascript method,you should pick the last object or array you want to modify
 
   eg:
 

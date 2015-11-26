@@ -1,12 +1,12 @@
 {
   "name": "immutable-data",
-  "version": "0.2.4",
+  "version": "0.2.5",
   "description": "immutable data",
   "main": "lib/index.js",
   "scripts": {
     "test": "webpack && BABEL_JEST_STAGE=0 jest",
     "build": "webpack",
-    "coveralls": "webpack && BABEL_JEST_STAGE=0 jest --coverage && cat ./coverage/lcov.info | coveralls",
+    "coveralls": "webpack && BABEL_JEST_STAGE=0 jest && cat ./coverage/lcov.info | coveralls",
     "dev": "webpack -w"
   },
   "author": "https://github.com/zinkey",
