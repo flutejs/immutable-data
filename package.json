@@ -1,0 +1,48 @@
+{
+  "name": "immutable-data",
+  "version": "0.1.7",
+  "description": "immutable data",
+  "main": "lib/index.js",
+  "scripts": {
+    "test": "webpack && BABEL_JEST_STAGE=0 jest",
+    "build": "webpack",
+    "dev": "webpack -w"
+  },
+  "author": "https://github.com/zinkey",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/flutejs/immutable-data"
+  },
+  "dependencies": {
+    "is-array": "~1.0.1",
+    "object-assign": "~4.0.1",
+    "traverse": "~0.6.6"
+  },
+  "devDependencies": {
+    "jison-loader": "~1.0.0",
+    "babel": "5",
+    "babel-loader": "5.3.3",
+    "webpack": "1.12.4",
+    "babel-jest": "~5.3.0",
+    "jest-cli": "~0.8.0"
+  },
+  "browser": {
+    "fs": false
+  },
+  "jest": {
+    "scriptPreprocessor": "<rootDir>/node_modules/babel-jest",
+    "unmockedModulePathPatterns": [
+      "<rootDir>/node_modules/*",
+      "<rootDir>/lib/*"
+    ],
+    "testPathIgnorePatterns": [
+      "/node_modules/"
+    ],
+    "testDirectoryName": "test"
+  },
+  "keywords": [
+    "immutable",
+    "persistent",
+    "data"
+  ]
+}
