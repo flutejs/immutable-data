@@ -1,6 +1,6 @@
 {
   "name": "immutable-data",
-  "version": "0.2.1",
+  "version": "0.2.2",
   "description": "immutable data",
   "main": "lib/index.js",
   "scripts": {
@@ -13,12 +13,10 @@
     "type": "git",
     "url": "https://github.com/flutejs/immutable-data"
   },
-  "dependencies": {
+  "devDependencies": {
     "is-array": "~1.0.1",
     "object-assign": "~4.0.1",
-    "traverse": "~0.6.6"
-  },
-  "devDependencies": {
+    "traverse": "~0.6.6",
     "jison-loader": "~1.0.0",
     "babel": "5",
     "babel-loader": "5.3.3",
