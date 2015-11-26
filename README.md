@@ -1,5 +1,9 @@
 ## immutable-data
 
+[![Build Status](https://travis-ci.org/flutejs/immutable-data.svg)](https://travis-ci.org/flutejs/immutable-data)
+[![NPM version](https://img.shields.io/npm/v/immutable-data.svg?style=flat)](https://npmjs.org/package/immutable-data)
+[![NPM downloads](http://img.shields.io/npm/dm/immutable-data.svg?style=flat)](https://npmjs.org/package/immutable-data)
+
 A method of picking up the property to complete "persistent immutable data"
  
 ```javascript
