@@ -18,7 +18,7 @@ class ImmutableData {
     this.root = null
   }
 
-  get(str) {
+  pick(str) {
 
     if (!str){
 

@@ -1,6 +1,6 @@
 ## immutable-data
 
- provides persistent immutable api:"get" and "valueOf,so you can change the object(or array) just like a normal javascript object(or array)
+A method of picking up the property to complete "persistent immutable data"
  
 ```javascript
 var immutableData = require("immutable-data")
@@ -16,9 +16,9 @@ var oldObj = {
   }
 }
 
-var data = immutableData(obj)
+var data = immutableData(oldObj)
 
-var obj = data.get("c.d")
+var obj = data.pick("c.d")
 
 obj.e = "e"
 obj.g = "g"
@@ -49,20 +49,26 @@ console.log(newObj.c.f===oldObj.c.f)  //true
   var data = immutableData(array) 
   ```
 
-- get
+- pick
   
-  property string or undefined 
+  pick up the property you want to modify,then you can modify it by ordinary javascript method,you should pick up the last object or array you want to modify
 
   eg:
 
   ```javascript
-  data.get()
-  data.get("a.b[0].c")
+  var obj = data.pick("x")
+  var array = data.pick("a.b[0].list")
+  
+  obj.z = 1
+  array.push(1)
+
+  //error
+  data.pick("a.b[0]").list.push(1)
   ```
 
 - valueOf
 
-  return javascript normal object or array
+  after modify properties , you can use "valueOf" to get original javascript object or array
 
   eg:
 

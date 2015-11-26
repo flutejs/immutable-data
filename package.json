@@ -1,6 +1,6 @@
 {
   "name": "immutable-data",
-  "version": "0.1.7",
+  "version": "0.1.8",
   "description": "immutable data",
   "main": "lib/index.js",
   "scripts": {
@@ -29,6 +29,9 @@
   "browser": {
     "fs": false
   },
+  "files":[
+    "lib"
+  ],
   "jest": {
     "scriptPreprocessor": "<rootDir>/node_modules/babel-jest",
     "unmockedModulePathPatterns": [
