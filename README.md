@@ -6,7 +6,7 @@
 [![NPM downloads](http://img.shields.io/npm/dm/immutable-data.svg?style=flat)](https://npmjs.org/package/immutable-data)
 
 A method of picking the property to complete "persistent immutable data"
- 
+
 ```javascript
 var immutableData = require("immutable-data")
 
@@ -37,6 +37,8 @@ console.log(newObj.c===oldObj.c)      //false
 console.log(newObj.c.d===oldObj.c.d)  //false
 console.log(newObj.c.f===oldObj.c.f)  //true
 ```
+
+[try it in your browser](https://tonicdev.com/npm/immutable-data)
 
 ## API
 

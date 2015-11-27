@@ -1,6 +1,6 @@
 {
   "name": "immutable-data",
-  "version": "0.2.6",
+  "version": "0.2.7",
   "description": "immutable data",
   "main": "lib/index.js",
   "scripts": {
@@ -33,6 +33,7 @@
     "jison-loader": "~1.0.0",
     "webpack": "1.12.4"
   },
+  "tonicExampleFilename": "example.js",
   "browser": {
     "fs": false
   },
