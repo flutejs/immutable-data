@@ -1,6 +1,6 @@
 {
   "name": "immutable-data",
-  "version": "0.2.5",
+  "version": "0.2.6",
   "description": "immutable data",
   "main": "lib/index.js",
   "scripts": {
@@ -10,10 +10,15 @@
     "dev": "webpack -w"
   },
   "author": "https://github.com/zinkey",
+  "homepage": "https://github.com/flutejs/immutable-data",
   "repository": {
     "type": "git",
     "url": "https://github.com/flutejs/immutable-data"
   },
+  "bugs": {
+    "url": "https://github.com/flutejs/immutable-data/issues"
+  },
+  "licenses": "MIT",
   "dependencies":{
     "is-array": "~1.0.1",
     "object-assign": "~4.0.1",
