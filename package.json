@@ -1,6 +1,6 @@
 {
   "name": "immutable-data",
-  "version": "0.3.1",
+  "version": "0.3.2",
   "description": "immutable data",
   "main": "lib/index.js",
   "scripts": {

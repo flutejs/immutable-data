@@ -9,9 +9,11 @@ import propertyParse from './propertyParse'
 class ImmutableData {
 
   constructor(obj) {
+    if (typeof obj!== 'object'){
+      throw new Error(`${obj} should be object or array`)
+    }
     this.obj = obj
     this.list = []
-    this.root = null
   }
 
   pick(str) {
@@ -34,7 +36,7 @@ class ImmutableData {
 
     if (typeof str === 'undefined'){
 
-      const obj = isArray(this.obj)?[]:{}//assign(this.obj)
+      const obj = isArray(this.obj)?[]:{}
       this.list.push({
         obj,
         propertyList:[]
@@ -69,7 +71,7 @@ class ImmutableData {
 
   valueOf() {
     
-    let result = {}
+    let result = isArray(this.obj)?[]:{}
     
     let pointer
   
@@ -137,7 +139,6 @@ class ImmutableData {
 
     this.obj = null
     this.list = []
-    this.root = null
 
     return result
 

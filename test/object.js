@@ -1,4 +1,5 @@
 import Immutable from '../lib/index'
+import isArray from 'is-array'
 
 describe('object', () => {
 
@@ -141,6 +142,7 @@ describe('object', () => {
     const newObj = data.valueOf()
 
     expect(newObj===oldObj).toBe(false)
+    expect(isArray(newObj)).toBe(false)
     expect(newObj.a===oldObj.a).toBe(true)
     expect(newObj.b===oldObj.b).toBe(true)
     expect(newObj.c===oldObj.c).toBe(false)
@@ -174,12 +176,16 @@ describe('object', () => {
     const newArray = data.valueOf()
 
     expect(newArray===oldArray).toBe(false)
+    expect(isArray(newArray)).toBe(true)
     expect(newArray[0]===oldArray[0]).toBe(true)
     expect(newArray[1].a.b.c===2).toBe(true)
     expect(oldArray[1].a.b.c===1).toBe(true)
     expect(newArray[1].a.b.e===oldArray[1].a.b.e).toBe(true)
     
 
+    expect(()=>{
+      Immutable(1)
+    }).toThrow("1 should be object or array")
 
   })
 
