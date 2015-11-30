@@ -1,11 +1,7 @@
-## immutable-data
-
 [![Build Status](https://travis-ci.org/flutejs/immutable-data.svg)](https://travis-ci.org/flutejs/immutable-data)
 [![Coverage Status](https://coveralls.io/repos/flutejs/immutable-data/badge.svg?branch=master&service=github)](https://coveralls.io/github/flutejs/immutable-data?branch=master)
 [![NPM version](https://img.shields.io/npm/v/immutable-data.svg?style=flat)](https://npmjs.org/package/immutable-data)
 [![NPM downloads](http://img.shields.io/npm/dm/immutable-data.svg?style=flat)](https://npmjs.org/package/immutable-data)
-
-A method of picking the property to complete "persistent immutable data"
 
 ```javascript
 var immutableData = require("immutable-data")
@@ -63,19 +59,11 @@ console.log(newObj.c.f===oldObj.c.f)  //true
   eg:
 
   ```javascript
-  var obj = data.pick("x")
-  //var obj = data.pick(oldObj.x)
- 
+  var obj = data.pick(oldObj.x)
   var array = data.pick("a.b[0].list")
-  //var data.pick(oldObj.a.b[0].list)
-
- data.pick()
- //data.pick(oldObj)
  
-  
   obj.z = 1
   array.push(1)
-
 
   //error
   data.pick("a.b[0]").list.push(1)
