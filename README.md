@@ -64,10 +64,18 @@ console.log(newObj.c.f===oldObj.c.f)  //true
 
   ```javascript
   var obj = data.pick("x")
+  //var obj = data.pick(oldObj.x)
+ 
   var array = data.pick("a.b[0].list")
+  //var data.pick(oldObj.a.b[0].list)
+
+ data.pick()
+ //data.pick(oldObj)
+ 
   
   obj.z = 1
   array.push(1)
+
 
   //error
   data.pick("a.b[0]").list.push(1)

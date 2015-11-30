@@ -1,6 +1,8 @@
 import traverse from 'traverse'
+import isArray from 'is-array'
 import assign from './assign'
 import getValue from './getValue'
+import getPath from './getPath'
 import propertyParse from './propertyParse'
 
 
@@ -12,57 +14,42 @@ class ImmutableData {
     this.root = null
   }
 
-  reload(){
-    this.obj = this.valueOf()
-    this.list = []
-    this.root = null
-  }
-
   pick(str) {
 
-    if (!str){
+    let propertyList
 
-      if (this.list.length){
-        this.reload()
+    if (typeof str === 'object'){
+      const list = getPath(this.obj,str)
+      if (!list.length){
+        throw new Error("can not find the property")
       }
-
-      const obj = assign(this.obj)
-      this.root = obj
-      return obj
+      if (list.length>1){
+        throw new Error(`find more than one path: ${list.join(" and ")}`)
+      }
+      propertyList = list[0]
+      if (!propertyList.length){
+        str = undefined
+      }
     }
-    else{
 
-      if (this.root){
-        this.reload()
-      }
+    if (typeof str === 'undefined'){
 
+      const obj = isArray(this.obj)?[]:{}//assign(this.obj)
+      this.list.push({
+        obj,
+        propertyList:[]
+      })
+
+      return obj
     }
     
 
-    const propertyList = traverse(propertyParse(str)).reduce(function(acc, x) {
+    propertyList = propertyList||traverse(propertyParse(str)).reduce(function(acc, x) {
       if (this.isLeaf && typeof x !== 'undefined') {
         acc.push(x)
       }
       return acc
-    }, [])
-
-    const map = {}
-
-    this.list.forEach(item=>{
-      map[item.propertyList[0]] = true
-    })
-
-    let reload = false
-    propertyList.forEach(property=>{
-      if (map[property]){
-        reload = true
-      }
-    }) 
-
-    if (reload){
-      this.obj = this.valueOf()
-      this.list = []
-    }   
+    }, [])  
 
     let pointer = getValue(this.obj,propertyList)
 
@@ -70,7 +57,7 @@ class ImmutableData {
       throw new Error(`${this.obj} ${str} should be object or array`)
     }
 
-    const obj = assign(pointer)
+    const obj = isArray(pointer)?[]:{}
 
     this.list.push({
       obj,
@@ -81,27 +68,28 @@ class ImmutableData {
   }
 
   valueOf() {
-
-    if (this.root){
-      return assign(this.obj,this.root)
-    }
     
-    const result = {}
+    let result = {}
     
     let pointer
-
-    this.list.forEach(item=>{
-
-      pointer = result
+  
+    this.list.sort((a,b)=>a.propertyList.length>b.propertyList.length).forEach(item=>{
 
       const len = item.propertyList.length
+
+      if (len==0){
+        result = assign(result,item.obj)
+        return
+      }
+
+      pointer = result
 
       item.propertyList.forEach((property, index) => {
         if (index == len - 1) {
           pointer[property] = item.obj
           return
         }
-        const temp = {}
+        const temp = pointer[property] || {}
         pointer[property] = temp
         pointer = temp
       })
@@ -111,13 +99,14 @@ class ImmutableData {
 
     const list = []
 
+
     Object.keys(result).forEach(key => {
       
       list.push(traverse(result[key]).reduce(function(acc, x) {
         this.notLeaf && this.key && acc.push({
           key: this.key,
           value: x,
-          parent: this.parent
+          parent: this.parent.node
         })
         return acc
       }, [{
@@ -128,32 +117,34 @@ class ImmutableData {
 
     })
 
-    
-    const map = {}
-
     list.forEach(path => {
-
-      map[path[0].key] = true
       
       const keyList = path.map(obj => obj.key)
-      
+
       path.reverse().forEach((item, index) => {
-        item.parent[item.key] = assign(getValue(this.obj, keyList.slice(0, keyList.length - index)), item.value)
+        
+        item.parent[item.key] = typeof item.value === 'object'?assign(getValue(this.obj, keyList.slice(0, keyList.length - index)),item.value):item.value
+      
       })
 
     })
 
     Object.keys(this.obj).forEach((key) => {
-      if (!map[key]) {
+      if (typeof result[key] === 'undefined') {
         result[key] = this.obj[key]
       }
     })
+
+    this.obj = null
+    this.list = []
+    this.root = null
 
     return result
 
   }
 
 }
+
 
 export default (obj) => {
   return new ImmutableData(obj)

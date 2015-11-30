@@ -1,4 +1,5 @@
 var webpack = require('webpack')
+var fs = require('fs')
 
 
 module.exports = {
@@ -6,17 +7,7 @@ module.exports = {
     index:'./src/index.js'
   },
 
-  externals: {
-    'traverse': {
-      commonjs2: 'traverse'
-    },
-    'object-assign':{
-      commonjs2: 'object-assign'
-    },
-    'is-array':{
-      commonjs2: 'is-array'
-    }
-  },
+  externals:fs.readdirSync("node_modules"),
 
   module: {
     loaders: [

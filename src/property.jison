@@ -26,6 +26,8 @@ expressions
 e
     : PROPERTY p
         {$$ = {p:$1,e:$2}}
+    | NUMBER p
+        {$$ = {p:$1,e:$2}}
     ;
 
 
