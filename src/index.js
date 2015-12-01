@@ -1,9 +1,9 @@
 import traverse from 'traverse'
 import isArray from 'is-array'
+import parse from 'object-path-parse'
 import assign from './assign'
 import getValue from './getValue'
 import getPath from './getPath'
-import propertyParse from './propertyParse'
 
 
 class ImmutableData {
@@ -46,12 +46,7 @@ class ImmutableData {
     }
     
 
-    propertyList = propertyList||traverse(propertyParse(str)).reduce(function(acc, x) {
-      if (this.isLeaf && typeof x !== 'undefined') {
-        acc.push(x)
-      }
-      return acc
-    }, [])  
+    propertyList = propertyList||parse(str)
 
     let pointer = getValue(this.obj,propertyList)
 

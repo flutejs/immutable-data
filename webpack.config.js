@@ -19,21 +19,12 @@ module.exports = {
           stage:0
         }
       }
-      ,
-      { 
-        test:/\.jison$/,
-        loader: 'jison-loader'
-      }
     ]
   },
   output: {
     path: "./lib",
     filename: '[name].js',
     libraryTarget:'commonjs2',
-  },
-
-  plugins: [
-    new webpack.optimize.UglifyJsPlugin({beautify:true})
-  ]
+  }
 
 }

@@ -18,7 +18,7 @@ describe('object', () => {
     }
     const data = Immutable(oldObj)
     
-    data.pick("c.d").e = 2
+    data.pick("c['d']").e = 2
     data.pick("c").g = "2"
 
     expect(()=>{
