@@ -12,7 +12,7 @@ class ImmutableData {
     if (typeof obj!== 'object'){
       throw new Error(`${obj} should be object or array`)
     }
-    this.obj = obj
+    this.data = obj
     this.list = []
   }
 
@@ -21,7 +21,7 @@ class ImmutableData {
     let propertyList
 
     if (typeof str === 'object'){
-      const list = getPath(this.obj,str)
+      const list = getPath(this.data,str)
       if (!list.length){
         throw new Error("can not find the property")
       }
@@ -36,7 +36,7 @@ class ImmutableData {
 
     if (typeof str === 'undefined'){
 
-      const obj = isArray(this.obj)?[]:{}
+      const obj = isArray(this.data)?[]:{}
       this.list.push({
         obj,
         propertyList:[]
@@ -48,10 +48,10 @@ class ImmutableData {
 
     propertyList = propertyList||parse(str)
 
-    let pointer = getValue(this.obj,propertyList)
+    let pointer = getValue(this.data,propertyList)
 
     if (typeof pointer !== 'object') {
-      throw new Error(`${this.obj} ${str} should be object or array`)
+      throw new Error(`${this.data} ${str} should be object or array`)
     }
 
     const obj = isArray(pointer)?[]:{}
@@ -66,7 +66,7 @@ class ImmutableData {
 
   valueOf() {
     
-    let result = isArray(this.obj)?[]:{}
+    let result = isArray(this.data)?[]:{}
     
     let pointer
   
@@ -120,19 +120,19 @@ class ImmutableData {
 
       path.reverse().forEach((item, index) => {
         
-        item.parent[item.key] = typeof item.value === 'object'?assign(getValue(this.obj, keyList.slice(0, keyList.length - index)),item.value):item.value
+        item.parent[item.key] = typeof item.value === 'object'?assign(getValue(this.data, keyList.slice(0, keyList.length - index)),item.value):item.value
       
       })
 
     })
 
-    Object.keys(this.obj).forEach((key) => {
+    Object.keys(this.data).forEach((key) => {
       if (typeof result[key] === 'undefined') {
-        result[key] = this.obj[key]
+        result[key] = this.data[key]
       }
     })
 
-    this.obj = null
+    this.data = result
     this.list = []
 
     return result
