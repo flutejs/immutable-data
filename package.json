@@ -7,7 +7,7 @@
     "index": "./src/index.js"
   },
   "scripts": {
-    "test-chrome": "atool-test --browsers Chrome ",
+    "test-chrome": "atool-test --browsers Chrome",
     "test": "atool-test",
     "build": "atool-build -o ./lib --no-compress",
     "coveralls": "cat ./coverage/lcov.info | coveralls",
