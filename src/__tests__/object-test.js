@@ -2,30 +2,6 @@ var set = require('../index');
 
 describe('object', () => {
 
-  it('should throw error if data is not an object', () => {
-    expect(() => set('a', {})).to.throw('data should be Object or Array');
-  });
-
-  it('should return data if obj not set', () => {
-    var obj1 = set({
-      "a": 1
-    });
-    expect(obj1).to.eql({'a': 1});
-
-    var obj2 = set(['a']);
-    expect(obj2).to.eql(['a']);
-  });
-
-  it('should return data if obj keys === 0', () => {
-    var obj1 = set({
-      "a": 1
-    }, {});
-    expect(obj1).to.eql({'a': 1});
-
-    var obj2 = set(['a'], []);
-    expect(obj2).to.eql(['a']);
-  });
-
   it('object property', () => {
 
     var obj1 = {
@@ -65,5 +41,20 @@ describe('object', () => {
 
   });
 
+  it('should throw error if data is not an object', () => {
+    expect(() => set('a', {})).to.throw('data should be Object or Array');
+  });
+
+  it('should return data if obj not set', () => {
+    var obj = {
+      "a": 1
+    };
+
+    var obj1 = set(obj);
+    expect(obj1).to.eql(obj);
+
+    var obj2 = set(obj, {});
+    expect(obj2).to.eql(obj);
+  });
 
 });
