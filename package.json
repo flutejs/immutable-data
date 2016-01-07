@@ -7,9 +7,10 @@
     "index": "./src/index.js"
   },
   "scripts": {
-    "test": "atool-test --browsers Chrome ",
+    "test-chrome": "atool-test --browsers Chrome ",
+    "test": "atool-test",
     "build": "atool-build -o ./lib --no-compress",
-    "coveralls": "webpack && BABEL_JEST_STAGE=0 jest && cat ./coverage/lcov.info | coveralls",
+    "coveralls": "cat ./coverage/lcov.info | coveralls",
     "dev": "dora -p 8001 --plugins dora-plugin-atool-build?publicPath=/demo"
   },
   "author": "https://github.com/zinkey",
