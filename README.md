@@ -4,7 +4,7 @@
 [![NPM downloads](http://img.shields.io/npm/dm/immutable-data.svg?style=flat)](https://npmjs.org/package/immutable-data)
 
 ```javascript
-var set = require("immutable-data")
+var set = require("immutable-data");
 
 var oldObj = {
   a:{},
@@ -15,21 +15,21 @@ var oldObj = {
     },
     f:{}
   }
-}
+};
 
-var newObj = immutableData(oldObj,{
+var newObj = set(oldObj,{
   "c.d.e":2,
   "c.d.g":"g"
-})
+});
 
-console.log(newObj===oldObj)          //false
-console.log(newObj.a===oldObj.a)      //true
-console.log(newObj.b===oldObj.b)      //true
-console.log(newObj.c===oldObj.c)      //false
-console.log(newObj.c.d===oldObj.c.d)  //false
-console.log(newObj.c.f===oldObj.c.f)  //true
-console.log(newObj.c.d.e===2)         //true
-console.log(newObj.c.d.g==='g')     //true
+console.log(newObj===oldObj);          //false
+console.log(newObj.a===oldObj.a);      //true
+console.log(newObj.b===oldObj.b);      //true
+console.log(newObj.c===oldObj.c);      //false
+console.log(newObj.c.d===oldObj.c.d);  //false
+console.log(newObj.c.f===oldObj.c.f);  //true
+console.log(newObj.c.d.e===2);         //true
+console.log(newObj.c.d.g==='g');       //true
 ```
 
 ## API
@@ -39,13 +39,10 @@ console.log(newObj.c.d.g==='g')     //true
   eg:
 
   ```javascript
-  var obj = {}
-  var newObj = set(obj, {})
-  ```
-
-  ```javascript
-  var array = []
-  var newArray = set(array, {}) 
+  var obj = {};
+  var newObj = set(obj, {});
+  var array = [];
+  var newArray = set(array, {}); 
   ```
 
 ## dev
