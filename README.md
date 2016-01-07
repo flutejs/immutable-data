@@ -4,7 +4,7 @@
 [![NPM downloads](http://img.shields.io/npm/dm/immutable-data.svg?style=flat)](https://npmjs.org/package/immutable-data)
 
 ```javascript
-var immutableData = require("immutable-data")
+var set = require("immutable-data")
 
 var oldObj = {
   a:{},
@@ -17,14 +17,10 @@ var oldObj = {
   }
 }
 
-var data = immutableData(oldObj)
-
-var obj = data.pick("c.d")
-
-obj.e = "e"
-obj.g = "g"
-
-var newObj = data.valueOf()
+var newObj = immutableData(oldObj,{
+  "c.d.e":2,
+  "c.d.g":"g"
+})
 
 console.log(newObj===oldObj)          //false
 console.log(newObj.a===oldObj.a)      //true
@@ -32,51 +28,24 @@ console.log(newObj.b===oldObj.b)      //true
 console.log(newObj.c===oldObj.c)      //false
 console.log(newObj.c.d===oldObj.c.d)  //false
 console.log(newObj.c.f===oldObj.c.f)  //true
+console.log(newObj.c.d.e===2)         //true
+console.log(newObj.c.d.g==='g')     //true
 ```
-
-[try it in your browser](https://tonicdev.com/npm/immutable-data)
 
 ## API
 
-- create immutable data
+- function set(data, obj)
 
   eg:
 
   ```javascript
   var obj = {}
-  var data = immutableData(obj)
+  var newObj = set(obj, {})
   ```
 
   ```javascript
   var array = []
-  var data = immutableData(array) 
-  ```
-
-- pick
-  
-  pick the property you want to modify,then you can modify it by ordinary javascript method,you should pick the last object or array you want to modify
-
-  eg:
-
-  ```javascript
-  var obj = data.pick(oldObj.x)
-  var array = data.pick("a.b[0].list")
- 
-  obj.z = 1
-  array.push(1)
-
-  //error
-  data.pick("a.b[0]").list.push(1)
-  ```
-
-- valueOf
-
-  after modify properties , you can use "valueOf" to get original javascript object or array
-
-  eg:
-
-  ```javascript
-  data.valueOf()
+  var newArray = set(array, {}) 
   ```
 
 ## dev

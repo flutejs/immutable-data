@@ -1,30 +1,13 @@
-var webpack = require('webpack')
-var fs = require('fs')
-
-
-module.exports = {
-  entry: {
-    index:'./src/index.js'
-  },
-
-  externals:fs.readdirSync("node_modules"),
-
-  module: {
-    loaders: [
-      { 
-        test:/\.js$/,
-        exclude: /node_modules/,
-        loader: 'babel-loader',
-        query: {
-          stage:0
-        }
-      }
-    ]
-  },
-  output: {
-    path: "./lib",
-    filename: '[name].js',
-    libraryTarget:'commonjs2',
+var fs = require('fs');
+module.exports = function(webpackConfig, dora) {
+  
+  if (dora){
+    webpackConfig.entry.index= './demo/index.js';
+    return webpackConfig
   }
 
+  webpackConfig.plugins.splice(0,1);
+  webpackConfig.output.libraryTarget = 'commonjs2';
+  webpackConfig.externals = fs.readdirSync('node_modules');
+  return webpackConfig;
 }

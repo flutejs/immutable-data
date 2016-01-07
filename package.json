@@ -1,13 +1,16 @@
 {
   "name": "immutable-data",
-  "version": "0.4.3",
+  "version": "1.0.0",
   "description": "A method of picking the property to complete persistent immutable data",
   "main": "lib/index.js",
+  "entry": {
+    "index": "./src/index.js"
+  },
   "scripts": {
-    "test": "webpack && BABEL_JEST_STAGE=0 jest",
-    "build": "webpack",
+    "test": "atool-test --browsers Chrome ",
+    "build": "atool-build -o ./lib --no-compress",
     "coveralls": "webpack && BABEL_JEST_STAGE=0 jest && cat ./coverage/lcov.info | coveralls",
-    "dev": "webpack -w"
+    "dev": "dora -p 8001 --plugins dora-plugin-atool-build?publicPath=/demo"
   },
   "author": "https://github.com/zinkey",
   "homepage": "https://github.com/flutejs/immutable-data",
@@ -22,42 +25,16 @@
   "dependencies": {
     "is-array": "~1.0.1",
     "object-assign": "~4.0.1",
-    "object-path-parse": "^0.1.0",
-    "traverse": "~0.6.6"
+    "object-path-parse": "^0.1.0"
   },
   "devDependencies": {
-    "babel": "5",
-    "babel-jest": "~5.3.0",
-    "babel-loader": "5.3.3",
+    "atool-build": "0.4.x",
+    "atool-test": "*",
     "coveralls": "~2.11.4",
-    "jest-cli": "~0.8.0",
-    "webpack": "1.12.4"
-  },
-  "tonicExampleFilename": "example.js",
-  "browser": {
-    "fs": false
+    "dora": "0.2.x",
+    "dora-plugin-atool-build": "0.4.x"
   },
   "files": [
     "lib"
-  ],
-  "jest": {
-    "scriptPreprocessor": "<rootDir>/node_modules/babel-jest",
-    "unmockedModulePathPatterns": [
-      "<rootDir>/node_modules/*",
-      "<rootDir>/lib/*"
-    ],
-    "testPathIgnorePatterns": [
-      "/node_modules/"
-    ],
-    "testDirectoryName": "test",
-    "collectCoverage": true,
-    "collectCoverageOnlyFrom": {
-      "./lib/index.js": true
-    }
-  },
-  "keywords": [
-    "immutable",
-    "persistent",
-    "data"
   ]
 }
