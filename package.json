@@ -10,7 +10,7 @@
     "test-chrome": "atool-test --browsers Chrome ",
     "test": "atool-test",
     "build": "atool-build -o ./lib --no-compress",
-    "coveralls": "cat ./coverage/lcov.info | coveralls",
+    "coveralls": "cat ./coverage/report-lcov/lcov.info | coveralls",
     "dev": "dora -p 8001 --plugins dora-plugin-atool-build?publicPath=/demo"
   },
   "author": "https://github.com/zinkey",
