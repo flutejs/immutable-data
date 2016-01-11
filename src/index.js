@@ -4,7 +4,8 @@ var isArray = require('is-array');
 
 function assignData(data,key,value) {
   if (isArray(data)){
-    return [...data.slice(0,key), value, ...data.slice(key + 1)];
+    key = parseInt(key);
+    return [...data.slice(0, key), value, ...data.slice(key + 1)];
   }
   return assign({},data,{
     [key]:value,
@@ -34,7 +35,7 @@ function set(data,obj) {
   array.forEach(function(key) {
 
     var nodeList = [];
-    var list = parse(key) 
+    var list = parse(key);
     var pointer = data;
     
     nodeList.push({
@@ -55,7 +56,7 @@ function set(data,obj) {
         return;
       }
       var lastNode = nodeList[index-1];
-      data = node.value = assignData(node.value, lastNode.key, lastNode.value)
+      data = node.value = assignData(node.value, lastNode.key, lastNode.value);
     });
 
   });

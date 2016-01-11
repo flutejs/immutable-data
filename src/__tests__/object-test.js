@@ -28,17 +28,25 @@ describe('object', () => {
 
   it('array property', () => {
 
-    var array1 = [{}];
+    var array1 = [{
+      list:[]
+    },{
+      list:[]
+    },{
+      list:[]
+    }];
 
-    var obj = {};
+    var list = [];
     var array2 = set(array1, {
-      "1":obj,
+      "1.list":list,
     });
 
     expect(array2).to.not.equal(array1);
     expect(array2[0]).to.equal(array1[0]);
-    expect(array2[1]).to.equal(obj);
-
+    expect(array2[1]).to.not.equal(array1[1]);
+    expect(array2[1].list).to.equal(list);
+    expect(array2[2]).to.equal(array1[2]);
+    
   });
 
   it('should throw error if data is not an object', () => {
