@@ -1,6 +1,6 @@
 {
   "name": "immutable-data",
-  "version": "2.0.0",
+  "version": "2.0.1",
   "description": "A method of picking the property to complete persistent immutable data",
   "main": "lib/index.js",
   "entry": {
