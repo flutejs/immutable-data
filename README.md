@@ -111,7 +111,7 @@ merge({list:[1,2]}, {list:{"0":0}})
 {list:[0,2]}
 ```
 
-### remove(data, path) 
+### remove(data, path) 
 
 - data: original data you want to change
 
