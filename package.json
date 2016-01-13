@@ -24,8 +24,12 @@
   },
   "licenses": "MIT",
   "dependencies": {
+    "array-foreach": "^1.0.1",
+    "array-map": "0.0.0",
     "is-array": "~1.0.1",
+    "is-plain-object": "^2.0.1",
     "object-assign": "~4.0.1",
+    "object-keys": "^1.0.9",
     "object-path-parse": "^0.1.0"
   },
   "devDependencies": {

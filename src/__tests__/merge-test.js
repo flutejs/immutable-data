@@ -1,19 +1,25 @@
-var set = require('../index');
+var {merge} = require('../index');
 
 describe('object', () => {
 
   it('object property', () => {
 
     var obj1 = {
-      a:{
-        b:[{},{}]
+      a: {
+        b: [{},{}],
       },
-      c:{},
+      c: {},
     };
 
-    var obj2 = set(obj1, {
-      "a.b[0]":{},
-      "d":"d",
+    var obj2 = merge(obj1, {
+      a: {
+        b: {
+          "0": {
+            x: 1,
+          }
+        }
+      },
+      d: "d",
     });
 
     expect(obj2).to.not.equal(obj1);
@@ -23,6 +29,13 @@ describe('object', () => {
     expect(obj2.a.b[1]).to.equal(obj1.a.b[1]);
     expect(obj2.a.b.c).to.equal(obj1.a.b.c);
     expect(obj2.d).to.equal('d');
+    expect(obj2).to.eql({
+      a: {
+        b:[{x: 1},{}],
+      },
+      c: {},
+      d: "d",
+    });
 
   });
 
@@ -37,8 +50,10 @@ describe('object', () => {
     }];
 
     var list = [];
-    var array2 = set(array1, {
-      "1.list":list,
+    var array2 = merge(array1, {
+      "1":{
+        list,
+      }
     });
 
     expect(array2).to.not.equal(array1);
@@ -50,7 +65,7 @@ describe('object', () => {
   });
 
   it('should throw error if data is not an object', () => {
-    expect(() => set('a', {})).to.throw('data should be Object or Array');
+    expect(() => merge('a', {})).to.throw('data should be Object or Array');
   });
 
   it('should return data if obj not set', () => {
@@ -58,11 +73,9 @@ describe('object', () => {
       "a": 1
     };
 
-    var obj1 = set(obj);
+    var obj1 = merge(obj);
     expect(obj1).to.eql(obj);
 
-    var obj2 = set(obj, {});
-    expect(obj2).to.eql(obj);
   });
 
 });
