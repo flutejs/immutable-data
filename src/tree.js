@@ -45,7 +45,7 @@ function assignData(node, array, type = 'set') {
   var data = node.data;
   if (type === 'remove' && node.secondNode){
     if (isArray(data)) {
-      var list = data;
+      data = data.concat();
       forEach(array, function(obj, index) {
         // splice 1 item and index - 1
         data.splice(obj.key - index, 1);
@@ -62,11 +62,11 @@ function assignData(node, array, type = 'set') {
   }
 
   if (isArray(data)) {
-    var list = data.concat();
+    data = data.concat();
     forEach(array, function(obj) {
-      list[obj.key] = obj.value;
+      data[obj.key] = obj.value;
     });
-    return list;
+    return data;
   }
   var assignObject = {};
   forEach(array, function(obj) {

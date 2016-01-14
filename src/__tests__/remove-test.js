@@ -76,10 +76,13 @@ describe('object', () => {
       }
     ]);
     
-    expect(array1[0]).to.equal(array2[0]);
+    expect(array1[0]).to.not.equal(array2[0]);
 
+    var list1 = [0,1];
+    var list2 = remove(list1,0);
 
-    expect(remove([0,1],0)).to.eql([1]);
+    expect(list2).to.eql([1]);
+    expect(list1).to.not.equal(list2);
 
   });
 

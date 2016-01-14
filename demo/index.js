@@ -55,4 +55,8 @@ var obj1 = {
 var obj2 = remove(obj1, ['a.x','a.y','b.z']); 
 console.log(obj2)
 
-console.log(remove([0,1],0));
+var list = [0,1];
+
+var list2 = remove(list,0);
+
+console.log(list === list2);
