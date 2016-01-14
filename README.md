@@ -37,7 +37,7 @@ var data = {
   }]
 };
 
-set(obj, {
+set(data, {
   'a.b': 1,
   'c.0.d': 1
 })
@@ -75,7 +75,7 @@ var data = {
   }]
 };
 
-merge(obj, {
+merge(data, {
   a: {
     b: 1
   },
@@ -137,7 +137,7 @@ var data = {
   }]
 };
 
-remove(obj, [
+remove(data, [
   'a.b',
   'c.0'
 ])
