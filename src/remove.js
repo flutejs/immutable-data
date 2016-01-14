@@ -1,6 +1,7 @@
 var parse = require('object-path-parse');
 var map = require('array-map');
 var keys = Object.keys || require('object-keys');
+var isArray = require('is-array');
 var {createTree, getNodeValue} = require('./tree');
 
 // remove(data, String or Array)
@@ -9,7 +10,7 @@ module.exports = function remove(data, array = []) {
     throw new Error('data should be Object or Array');
   }
 
-  if (typeof array === 'string'){
+  if (!isArray(array)){
     array = [array];
   }
 
@@ -18,6 +19,7 @@ module.exports = function remove(data, array = []) {
   }
   
   array = map(array, function(path){
+    path = String(path);
     return {
       // Just use split if there is no '[' in path
       // eg: obj["list"] => parse, obj.list => split

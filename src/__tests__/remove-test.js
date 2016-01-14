@@ -78,6 +78,9 @@ describe('object', () => {
     
     expect(array1[0]).to.equal(array2[0]);
 
+
+    expect(remove([0,1],0)).to.eql([1]);
+
   });
 
   it('should throw error if data is not an object', () => {

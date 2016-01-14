@@ -1,6 +1,6 @@
 {
   "name": "immutable-data",
-  "version": "2.0.1",
+  "version": "2.0.2",
   "description": "A method of picking the property to complete persistent immutable data",
   "main": "lib/index.js",
   "entry": {
@@ -11,6 +11,7 @@
     "test": "atool-test",
     "build": "atool-build -o ./lib --no-compress",
     "coveralls": "cat ./coverage/report-lcov/lcov.info | coveralls",
+    "prepublish": "npm run build",
     "dev": "dora -p 8001 --plugins dora-plugin-atool-build?publicPath=/demo"
   },
   "author": "https://github.com/zinkey",
