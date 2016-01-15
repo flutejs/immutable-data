@@ -1,7 +1,7 @@
 {
   "name": "immutable-data",
-  "version": "2.0.3",
-  "description": "A method of picking the property to complete persistent immutable data",
+  "version": "2.0.4",
+  "description": "Easily update nested objects and arrays in a declarative and immutable manner",
   "main": "lib/index.js",
   "entry": {
     "index": "./src/index.js"
@@ -42,5 +42,13 @@
   },
   "files": [
     "lib"
+  ],
+  "keywords": [
+    "immutable",
+    "persistent",
+    "data",
+    "datastructure",
+    "declarative",
+    "nested"
   ]
 }
