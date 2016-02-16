@@ -35,7 +35,7 @@
   },
   "devDependencies": {
     "atool-build": "0.4.x",
-    "atool-test": "*",
+    "atool-test": "0.3.0",
     "coveralls": "~2.11.4",
     "dora": "0.2.x",
     "dora-plugin-atool-build": "0.4.x"
