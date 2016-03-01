@@ -34,7 +34,7 @@
     "object-path-parse": "^0.1.0"
   },
   "devDependencies": {
-    "atool-build": "0.4.x",
+    "atool-build": "0.5.3",
     "atool-test": "*",
     "coveralls": "~2.11.4",
     "dora": "0.2.x",
