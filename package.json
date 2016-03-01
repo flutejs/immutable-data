@@ -38,7 +38,8 @@
     "atool-test": "*",
     "coveralls": "~2.11.4",
     "dora": "0.2.x",
-    "dora-plugin-atool-build": "0.4.x"
+    "dora-plugin-atool-build": "0.4.x",
+    "karma-chrome-launcher": "^0.2.2"
   },
   "files": [
     "lib"
