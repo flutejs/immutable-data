@@ -26,7 +26,7 @@
 eg:
 
 ```javascript
-var {set, merge, remove} = require("immutable-data");
+var set = require("immutable-data").set;
 
 var data = {
   a: {
@@ -64,7 +64,7 @@ set(data, {
 eg:
 
 ```javascript
-var {merge} = require("immutable-data");
+var merge = require("immutable-data").merge;
 
 var data = {
   a: {
@@ -126,7 +126,7 @@ merge({list:[1,2]}, {list:{"0":0}})
 eg:
 
 ```javascript
-var {remove} = require("immutable-data");
+var remove = require("immutable-data").remove;
 
 var data = {
   a: {
