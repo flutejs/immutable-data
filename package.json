@@ -1,6 +1,6 @@
 {
   "name": "immutable-data",
-  "version": "2.0.4",
+  "version": "2.0.5",
   "description": "Easily update nested objects and arrays in a declarative and immutable manner",
   "main": "lib/index.js",
   "entry": {
