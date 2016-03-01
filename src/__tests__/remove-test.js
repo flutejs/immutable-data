@@ -1,4 +1,4 @@
-var {remove} = require('../index');
+var remove = require('../index').remove;
 
 describe('object', () => {
 

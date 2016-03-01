@@ -1,4 +1,4 @@
-var {set} = require('../index');
+var set = require('../index').set;
 
 describe('object', () => {
 

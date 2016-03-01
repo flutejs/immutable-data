@@ -1,4 +1,4 @@
-var {merge} = require('../index');
+var merge = require('../index').merge;
 
 describe('object', () => {
 
