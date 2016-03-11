@@ -7,12 +7,11 @@
     "index": "./src/index.js"
   },
   "scripts": {
-    "test-chrome": "atool-test --browsers Chrome",
     "test": "atool-test",
     "build": "atool-build -o ./lib --no-compress",
     "coveralls": "cat ./coverage/report-lcov/lcov.info | coveralls",
     "prepublish": "npm run build",
-    "dev": "dora -p 8001 --plugins dora-plugin-atool-build?publicPath=/demo"
+    "dev": "dora -p 8001 --plugins webpack?publicPath=/demo"
   },
   "author": "https://github.com/zinkey",
   "homepage": "https://github.com/flutejs/immutable-data",
@@ -34,12 +33,11 @@
     "object-path-parse": "^0.1.0"
   },
   "devDependencies": {
-    "atool-build": "0.5.x",
-    "atool-test": "*",
+    "atool-build": "0.6.x",
+    "atool-test": "~0.4.x",
     "coveralls": "~2.11.4",
-    "dora": "0.2.x",
-    "dora-plugin-atool-build": "0.4.x",
-    "karma-chrome-launcher": "^0.2.2"
+    "dora": "0.3.x",
+    "dora-plugin-webpack": "0.5.x"
   },
   "files": [
     "lib"
