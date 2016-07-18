@@ -36,7 +36,7 @@
     "atool-build": "0.7.1",
     "atool-test": "~0.4.x",
     "coveralls": "~2.11.8",
-    "dora": "0.3.x",
+    "dora": "0.4.0",
     "dora-plugin-webpack": "0.6.4"
   },
   "files": [
