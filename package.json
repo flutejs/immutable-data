@@ -35,7 +35,7 @@
   "devDependencies": {
     "atool-build": "0.7.1",
     "atool-test": "~0.4.x",
-    "coveralls": "~2.11.8",
+    "coveralls": "~2.13.1",
     "dora": "0.3.x",
     "dora-plugin-webpack": "0.6.4"
   },
